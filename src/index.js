@@ -6,13 +6,14 @@ import App from './App';
 import { legacy_createStore as createStore, compose, applyMiddleware } from 'redux'
 import { rootReducer } from './redux/rootReducer';
 import { Provider } from 'react-redux';
+import { spamFilter } from './redux/middleWare';
 
 const store = createStore(
   rootReducer,
   compose(
     applyMiddleware(
       thunk, 
-      //spamFilter
+      spamFilter
     ),
     window.REDUX_DEVTOOLS_EXTENSION
       ? window.REDUX_DEVTOOLS_EXTENSION()
